@@ -1,15 +1,13 @@
 function NewTaskForm({
   categories,
-  // taskFormData,
   text,
   category,
-  // handleChanges,
   onTaskFormSubmit,
   handleText,
   handleCategory,
 }) {
   return (
-    <form className="new-task-form" onSubmit={(e) => onTaskFormSubmit(e)}>
+    <form className="new-task-form" onSubmit={onTaskFormSubmit}>
       <label>
         Details
         <input type="text" name="text" value={text} onChange={handleText} />
