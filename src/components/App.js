@@ -11,8 +11,6 @@ function App() {
   const [tasks, setTasks] = useState(TASKS);
   const [filterData, setFilterData] = useState("All");
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [text, setText] = useState("");
-  const [category, setCategory] = useState("Code");
 
   // selectedCategory is for the className to change whenever Click to the btn
   // filterData is to track the value of select---option
@@ -32,24 +30,8 @@ function App() {
 
   //**********FORM HANDLE**********
 
-  const handleText = (e) => {
-    setText(e.target.value);
-  };
-
-  const handleCategory = (e) => {
-    setCategory(e.target.value);
-  };
-
-  const onTaskFormSubmit = (e) => {
-    e.preventDefault();
-    const newData = {
-      text: text,
-      category: category,
-    };
-    console.log(newData);
+  const onTaskFormSubmit = (newData) => {
     setTasks((prev) => [...prev, newData]);
-    setText("");
-    setCategory("Code");
   };
   //***************
 
@@ -71,12 +53,13 @@ function App() {
       <NewTaskForm
         categories={CATEGORIES}
         // taskFormData={taskFormData}
-        text={text}
-        category={category}
+        // text={text}
+        // category={category}
         // handleChanges={handleChanges}
         onTaskFormSubmit={onTaskFormSubmit}
-        handleText={handleText}
-        handleCategory={handleCategory}
+        // handleText={handleText}
+        // handleCategory={handleCategory}
+        // handleSubmit={handleSubmit}
       />
       <TaskList tasks={filteredTaskData} handleDelete={handleDelete} />
     </div>
